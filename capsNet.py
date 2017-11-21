@@ -1,3 +1,9 @@
+"""
+License: Apache-2.0
+Author: Huadong Liao
+E-mail: naturomics.liao@gmail.com
+"""
+
 import tensorflow as tf
 
 from config import cfg
@@ -85,7 +91,8 @@ class CapsNet(object):
                 assert self.masked_v.get_shape() == [cfg.batch_size, 1, 16, 1]
             # Method 2. masking with true label, default mode
             else:
-                self.masked_v = tf.matmul(tf.squeeze(self.caps2), tf.reshape(self.Y, (-1, 10, 1)), transpose_a=True)
+                # self.masked_v = tf.matmul(tf.squeeze(self.caps2), tf.reshape(self.Y, (-1, 10, 1)), transpose_a=True)
+                self.masked_v = tf.multiply(tf.squeeze(self.caps2), tf.reshape(self.Y, (-1, 10, 1)))
                 self.v_length = tf.sqrt(tf.reduce_sum(tf.square(self.caps2), axis=2, keep_dims=True) + epsilon)
 
         # 2. Reconstructe the MNIST images with 3 FC layers

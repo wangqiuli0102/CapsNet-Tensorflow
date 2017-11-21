@@ -7,17 +7,17 @@
 
 A Tensorflow implementation of CapsNet based on Geoffrey Hinton's paper [Dynamic Routing Between Capsules](https://arxiv.org/abs/1710.09829)
 
+![capsVSneuron](imgs/capsuleVSneuron.png)
+
 > **Status:**
-> 1. The capsule of MNIST version is finished. Now we have two version:
->    a) tag v0.1, not work well due to Issue #8; 
->    b) the current version, see details in Results section
+> 1. The capsule of MNIST version is finished. The current `test accuracy =  99.57`, see details in the `Results` section
 
 > **Daily task**
 > 1. multi-GPU support
 > 2. Improving the reusability of ``capsLayer.py``, what you need is ``import capsLayer.fully_connected`` or ``import capsLayer.conv2d`` in your code
 
 > **Others**
-> 1. [Here(知乎)](https://zhihu.com/question/67287444/answer/251460831) is an answer explaining my understanding of Section 4 of the paper (the core part of CapsNet). It may be helpful in understanding the code.
+> 1. [Here(知乎)](https://zhihu.com/question/67287444/answer/251460831) is an answer explaining my understanding of the paper. It may be helpful in understanding the code.
 > 2. If you find out any problems, please let me know. I will try my best to 'kill' it ASAP.
 
 
@@ -63,9 +63,14 @@ $ python main.py
 ![margin_loss](results/margin_loss.png)
 ![reconstruction_loss](results/reconstruction_loss.png)
 
-- test acc
+- test accuracy(using reconstruction)
 
-![test_acc](results/accuracy.png)
+Routing iteration | 1 | 2 | 3 |
+:-----|:----:|:----:|:------|
+Test accuracy | 0.43 | 0.44 | 0.49 |
+*Paper* | 0.29 | - | 0.25 |
+
+![test_acc](results/routing_trials.png)
 
 
 > My simple comments for capsule
@@ -84,10 +89,6 @@ $ python main.py
 
 ## My weChat:
  ![my_wechat](/imgs/my_wechat_QR.png)
- ![nb312_wechat](/imgs/nb312_wechat.png)
-
-- Our WeChat group is growing fast, and [@nb312](https://github.com/nb312) is helping me with the wechat request. The left one is my wechat QR, but if you just want to join our group, please contact [@nb312](https://github.com/nb312) by the QR in the right side.
-
 
 ### Reference
 - [XifengGuo/CapsNet-Keras](https://github.com/XifengGuo/CapsNet-Keras): referred for code optimization
