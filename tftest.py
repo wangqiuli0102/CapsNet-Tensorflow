@@ -9,6 +9,5 @@ y = tf.square(y)
 # with tf.Session() as sess:
 #     y = sess.run(y,feed_dict={x_p:x})
 #     print(y)
-
 with tf.Session() as sess:
     print(sess.run(y))
